@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Select module</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Pacifico|Zilla+Slab|Montserrat+Alternates&display=swap" rel="stylesheet">
+
+
+    <style>
+  body{
+
+background: url(https://images.unsplash.com/photo-1550645612-83f5d594b671?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
+background-size: cover;
+}
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+ 
+        .back {
+            background: white;
+            border-radius: 5%;
+        }
+
+  
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/signin.css" rel="stylesheet">
+</head>
+
+<body class="text-center options">
+    <form class="form-signin back">
+        <h1 class=" title h3 mb-3 font-weight-normal">Mensaje</h1>
+        <p class="text">¡Gracias por adquirir el curso!</p>
+        <p class="text">En estos momentos recibirás un correo con el enlace del curso </p>
+       <strong><label >Course: </strong>  <%=curso %></label><br>
+       <strong><label >Module: </strong><%=modulo %></label><br>
+       <strong><label >Pay way: </strong> <%=pago %></label><br><br>
+       <strong><label >Costo inicial: </strong><%=costo %></label><br>
+       <strong><label style="color: red">Descuento: </strong> <%=descuento %> %</label><br>
+       <strong><label >Costo Final: </strong><%=costo_final %></label><br>
+        <p class="mt-5 mb-3 text-muted">Aplicacion realizada con Express.JS</p>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Select course</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Courgette|Pacifico|Zilla+Slab|Montserrat+Alternates&display=swap"
+    rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    body{
+
+    background: url(https://images.unsplash.com/photo-1550645612-83f5d594b671?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
+    background-size: cover;
+    }
+
+
+
+
+  
+    .back {
+      background: white;
+      border-radius: 5%;
+    }
+
+  
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="/stylesheets/signin.css" rel="stylesheet">
+</head>
+
+
+
+<body  class="text-center">
+   
+  <form class="back form-signin" action="module" method="post">
+    <h1 class="title h3 mb-3 font-weight-normal">Paso 1: Curso</h1>
+    <p class="text">Seleccione el curso </p>
+    <div class="mb-3" >
+      <select name="course" class="form-control">
+        <option value="PHP">PHP</option>
+        <option value="Java">Java</option>
+        <option value=".Net">.Net</option>
+      </select>
+    </div>
+   <input class="btn btn-lg btn-success btn-block" type="submit" value="Continue">
+    <p class="mt-5 mb-3 text-muted"></p>
+  </form>
+</body>
+
+</html>
