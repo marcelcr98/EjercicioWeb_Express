@@ -1,41 +1,79 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express')
+const app = express()
+const http = require('http');
+var path = require('path')
+const bodyParser = require('body-parser')
+const ejs = require('ejs')
+const op = require('./calculo')
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const port = 3000;
 
-var app = express();
+let curso = ''
+let modulo = ''
+let pago = ''
+
+app.use(bodyParser.urlencoded({ extend: true }))
+app.use(express.static(__dirname + '/public'))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+  app.get('/', (req, res) => {
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+    res.render('index')
+  })
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+  app.get('/course', (req, res) => {
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    res.render('course')
+  })
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+  app.get('/module', (req, res) => {
 
+    res.render('module')
+  })
+
+  app.get('/pay', (req, res) => {
+
+    res.render('pay')
+  })
+
+  app.post('/module', (req, res) => {
+
+    curso = req.body.course
+
+    res.render('module', {
+      curso,
+    })
+  })
+
+  app.post('/pay', (req, res) => {
+
+    modulo = req.body.module
+
+    res.render('pay', {
+      modulo,
+    })
+  })
+
+  app.post('/message', (req, res) => {
+
+    pago = req.body.pay
+
+    let costo = op.Price(curso)
+    let descuento = op.Discount
+    (pago)
+
+    let costo_final = costo - (costo * (descuento / 100))
+
+    res.render('message', {
+      curso,
+      modulo,
+      pago,
+      costo_final,
+      costo,
+      descuento
+    })
+  })
 module.exports = app;
